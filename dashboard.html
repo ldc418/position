@@ -4,41 +4,7 @@
         <meta charset="utf-8">
         <meta name="vieport" content="width=device-width" , initial-scale="1.0">
         <title>dash board</title>
-        <link href="../../css/E-agriculture/dashboard.css" rel="stylesheet">
-        <script src="http://code.jquery.com/jquery-1.7.min.js" ></script>
-    </head>
-
-    <script>
-        $.getJSON('https://api.openweathermap.org/data/2.5/weather?id=1835848&appid=876be2140f31454c18139bd1e11dfdc9&units=metric',
-        function(data){
-
-         var $minTemp = data.main.temp_min;
-         var $maxTemp = data.main.temp_max;
-         var $cTemp = data.main.temp;
-         var $now = new Date($.now());
-         var $m =$now.getMonth()+1 ;
-         var $cDate= $now.getFullYear() + '/' + $m + '/' + $now.getDate() + '/' + $now.getHours() + 
-         ':' + $now.getMinutes();
-         var $wIcon = data.weather[0].icon;
-         var $where = data.name;
-         var $sunrise = data.sys.sunrise
-         var $sunset = data.sys.sunset
-         var $speed = data.wind.speed
-         
-
-
-         $(".clowtemp").append($minTemp);
-         $(".ctemp").append($cTemp);
-         $(".chightemp").append($maxTemp);
-         $("h2").prepend($cDate);
-         $(".city").append($where);
-         $(".cicon").append('<img src="http://openweathermap.org/img/wn/'+ $wIcon +'.png"/>');
-         $(".speed").append($speed);
-         $(".sunrise").append($sunrise)
-         $(".sunset").append($sunset)
-        });
-    </script>
-    <style>
+        <style>
         @import url('https://fonts.googleapis.com/css2?family=Dangrek&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
@@ -186,7 +152,41 @@ font-size: 25px;
 .bg5{
     margin-left: 300px;
 }
-        </style?
+        </style>
+        <link href="dashboard.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-1.7.min.js" ></script>
+    </head>
+
+    <script>
+        $.getJSON('https://api.openweathermap.org/data/2.5/weather?id=1835848&appid=876be2140f31454c18139bd1e11dfdc9&units=metric',
+        function(data){
+
+         var $minTemp = data.main.temp_min;
+         var $maxTemp = data.main.temp_max;
+         var $cTemp = data.main.temp;
+         var $now = new Date($.now());
+         var $m =$now.getMonth()+1 ;
+         var $cDate= $now.getFullYear() + '/' + $m + '/' + $now.getDate() + '/' + $now.getHours() + 
+         ':' + $now.getMinutes();
+         var $wIcon = data.weather[0].icon;
+         var $where = data.name;
+         var $sunrise = data.sys.sunrise
+         var $sunset = data.sys.sunset
+         var $speed = data.wind.speed
+         
+
+
+         $(".clowtemp").append($minTemp);
+         $(".ctemp").append($cTemp);
+         $(".chightemp").append($maxTemp);
+         $("h2").prepend($cDate);
+         $(".city").append($where);
+         $(".cicon").append('<img src="http://openweathermap.org/img/wn/'+ $wIcon +'.png"/>');
+         $(".speed").append($speed);
+         $(".sunrise").append($sunrise)
+         $(".sunset").append($sunset)
+        });
+    </script>
 
     <body>
         <div class="wrap">
@@ -242,3 +242,11 @@ font-size: 25px;
       
     </body>
 </html>
+
+
+<div><script></script></div>
+
+<br>
+<hr>
+
+
