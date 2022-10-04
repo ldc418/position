@@ -6,9 +6,40 @@
         <title>dash board</title>
         <link href="../../css/E-agriculture/dashboard.css" rel="stylesheet">
         <script src="http://code.jquery.com/jquery-1.7.min.js" ></script>
-        
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Dangrek&display=swap');
+    </head>
+
+    <script>
+        $.getJSON('https://api.openweathermap.org/data/2.5/weather?id=1835848&appid=876be2140f31454c18139bd1e11dfdc9&units=metric',
+        function(data){
+
+         var $minTemp = data.main.temp_min;
+         var $maxTemp = data.main.temp_max;
+         var $cTemp = data.main.temp;
+         var $now = new Date($.now());
+         var $m =$now.getMonth()+1 ;
+         var $cDate= $now.getFullYear() + '/' + $m + '/' + $now.getDate() + '/' + $now.getHours() + 
+         ':' + $now.getMinutes();
+         var $wIcon = data.weather[0].icon;
+         var $where = data.name;
+         var $sunrise = data.sys.sunrise
+         var $sunset = data.sys.sunset
+         var $speed = data.wind.speed
+         
+
+
+         $(".clowtemp").append($minTemp);
+         $(".ctemp").append($cTemp);
+         $(".chightemp").append($maxTemp);
+         $("h2").prepend($cDate);
+         $(".city").append($where);
+         $(".cicon").append('<img src="http://openweathermap.org/img/wn/'+ $wIcon +'.png"/>');
+         $(".speed").append($speed);
+         $(".sunrise").append($sunrise)
+         $(".sunset").append($sunset)
+        });
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dangrek&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
@@ -17,7 +48,7 @@
 
 
 *{
-    /* font-family: 'Dancing Script', cursive; */
+    
     list-style: none;
     text-decoration: none;
     border-collapse: collapse;
@@ -79,8 +110,6 @@ font-size: 25px;
 
 
 .intro_bg2{
-    /* background-image:url(back3.jpg) ;
-    background-size: cover; */
     background-color: rgb(255, 255, 255);
     width: 8000px;
     height: 5000px;
@@ -92,7 +121,6 @@ font-size: 25px;
     height: 731px;
     margin: 70px;
     margin-top: 70px;
-    /* background-image: url(back2.jpg); */
     background-size: cover;
 }
 
@@ -104,8 +132,6 @@ font-size: 25px;
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 25px;
     border-radius: 20px;
-    /* display: flex; */
-
 }
 
 .contents{
@@ -121,7 +147,6 @@ font-size: 25px;
     border-radius: 20px;
     margin: auto;
     margin-top: 30px;
-    /* display: flex; */
 }
 .cicon{
     font-size: 30px;
@@ -142,7 +167,6 @@ font-size: 25px;
 
 .contents>div{
     margin-left: 70px;
-    /* display: flex; */
 }
 
 .bg3>.cicon{
@@ -162,39 +186,7 @@ font-size: 25px;
 .bg5{
     margin-left: 300px;
 }
-        </style>
-    </head>
-
-    <script>
-        $.getJSON('https://api.openweathermap.org/data/2.5/weather?id=1835848&appid=876be2140f31454c18139bd1e11dfdc9&units=metric',
-        function(data){
-
-         var $minTemp = data.main.temp_min;
-         var $maxTemp = data.main.temp_max;
-         var $cTemp = data.main.temp;
-         var $now = new Date($.now());
-         var $m =$now.getMonth()+1 ;
-         var $cDate= $now.getFullYear() + '/' + $m + '/' + $now.getDate() + '/' + $now.getHours() + 
-         ':' + $now.getMinutes();
-         var $wIcon = data.weather[0].icon;
-         var $where = data.name;
-         var $sunrise = data.sys.sunrise
-         var $sunset = data.sys.sunset
-         var $speed = data.wind.speed
-         
-
-
-         $(".clowtemp").append($minTemp);
-         $(".ctemp").append($cTemp);
-         $(".chightemp").append($maxTemp);
-         $("h2").prepend($cDate);
-         $(".city").append($where);
-         $(".cicon").append('<img src="http://openweathermap.org/img/wn/'+ $wIcon +'.png"/>');
-         $(".speed").append($speed);
-         $(".sunrise").append($sunrise)
-         $(".sunset").append($sunset)
-        });
-    </script>
+        </style?
 
     <body>
         <div class="wrap">
